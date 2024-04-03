@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -17,7 +19,8 @@ public class CourseraHomePage extends BasePage{
 		super(driver);
 		
 	}
-
+	
+	//input[contains(@id,"cds-react-aria") and @type='checkbox']
 	// @CacheLookup This annotation, when applied over a WebElement, instructs Selenium to keep a 
 	//cache of the WebElement instead of searching for the WebElement every time from the WebPage. 
 	@FindBy(xpath="//input[@placeholder='What do you want to learn?']") @CacheLookup 
@@ -27,27 +30,31 @@ public class CourseraHomePage extends BasePage{
 	private WebElement submitSearch;
 
 // beginers level check box
-	@FindBy(xpath="(//input[@id='cds-react-aria-89'])[1]") @CacheLookup 
+	@FindBy(xpath="//*[@id=\"search-results-header-wrapper\"]/div/div/div/div[4]/div/div/div[1]/label") @CacheLookup 
 	private WebElement beginerLevelCheckBox;
 	// english check box
-	@FindBy(xpath="(//input[@id='cds-react-aria-51'])[1]") @CacheLookup 
+	@FindBy(xpath="//*[@id=\"search-results-header-wrapper\"]/div/div/div/div[2]/div/div/div[1]/label/span") @CacheLookup 
 	private WebElement englishLanguageCheckBox;
 	
 	//after beginer and english click on first course and title of course 
-	@FindBy(xpath="//h1[normalize-space()='Meta Front-End Developer Professional Certificate']") @CacheLookup
+	@FindBy(xpath="//h1[@data-e2e='hero-title']") @CacheLookup
 	private WebElement course1Title;
 	//rating
-	@FindBy(xpath="(//div[@class='cds-119 cds-Typography-base css-h1jogs cds-121']") @CacheLookup
+	@FindBy(xpath="//main/section[2]/div/div/div[2]/div/div/section/div[2]/div/div") @CacheLookup
 	private WebElement rating1;
 	
-	@FindBy(xpath="//*[@id=\"rendered-content\"]/div/main/section[2]/div/div/div[1]/div[2]/section/div[2]/div[3]/div[1]") @CacheLookup
+	@FindBy(xpath="//main/section[2]/div/div/div[1]/div[2]/section/div[2]/div[3]/div[1]") @CacheLookup
 	private WebElement duration;
-	
-	@FindBy(xpath="//*[@id=\"rendered-content\"]/div/div/main/div[1]/div/div/div/div/div[2]/ul/li[1]") @CacheLookup
+	//*[@id="rendered-content"]/div/div/main/div[1]/div/div/div/div/div[2]/ul/li[1]/div/div/div/div/div/div[1]/div/img
+	@FindBy(xpath="//*[@id=\"rendered-content\"]/div/div/main/div[1]/div/div/div/div/div[2]/ul/li[1]/div/div/div/div/div/div[1]/div/img") @CacheLookup
 	private WebElement firstCourse;
 	
-	@FindBy(xpath="//*[@id=\"rendered-content\"]/div/div/main/div[1]/div/div/div/div/div[2]/ul/li[1]") @CacheLookup
+	@FindBy(xpath="//*[@id=\"rendered-content\"]/div/div/main/div[1]/div/div/div/div/div[2]/ul/li[2]/div/div/div/div/div/div[1]/div/img") @CacheLookup
 	private WebElement secondCourse;
+	By languagebtn=By.xpath("//button[contains(text(),\"Language: English\")]");
+	By levelbtn=By.xpath("//button[contains(text(),\"Beginner\")]");
+	By allCourses=By.cssSelector("li.cds-9");
+	
 	public void searchCourse() {
 		mywait.until(ExpectedConditions.visibilityOf(searchBox)).sendKeys(p.getProperty("searchCategory"));
 		submitSearch.click();
@@ -58,41 +65,52 @@ public class CourseraHomePage extends BasePage{
 	public void selectLevel() {
 		beginerLevelCheckBox.click();
 	}
-	
-	public void selectFirstCourse(){
-		firstCourse.click();
+	public void scrollToCourse() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, 0);");
 	}
-	public String getCourseTitle() {
-		return course1Title.getText();
-	}
-	public String getRating() {
-		return rating1.getText();
-	}
-	public int getDuration() {
-		String rawDuration=duration.getText();
-		String[] temp1=rawDuration.split("months");
-		String rawMonths=temp1[0].strip();
-		int months=Integer.parseInt(rawMonths);
-
-		String[] temp2=temp1[1].split("hours");
-		//temp2=[" at 6 "," a week"]
-		String rawHours="";
-		for(int asci=0;asci<temp2[0].length();asci++) {
-			if((int)temp2[0].charAt(asci)>=48 && (int)temp2[0].charAt(asci)<=57) {
-				rawHours+=temp2[0].charAt(asci);
-			}
+	public void selectFirstCourse() throws InterruptedException{
+		mywait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(languagebtn));
+		
+		mywait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(levelbtn));
+		mywait.until(ExpectedConditions.elementToBeClickable(firstCourse));
+		try{
+			driver.findElement(By.cssSelector("li.cds-9")).click();
+		}catch(Exception e) {
+			System.out.println("exception occured");
 		}
-		int hours=Integer.parseInt(rawHours);
-		return months*hours;
+		Thread.sleep(3000);
+//		firstCourse.click();
 	}
 	
+	public WebDriver switchToParentWindow() {
+		String parent=driver.getWindowHandle();
+		driver.switchTo().window(parent);
+		return driver;
+	}
 	public void selectSecondCourse(){
-		firstCourse.click();
+		
+		Set<String> se=driver.getWindowHandles();
+		List<String> ids=new ArrayList<String>(se);
+		System.out.println(ids);
+		driver.switchTo().window(ids.get(0));	
+		mywait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(languagebtn));
+		mywait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(levelbtn));
+		try{
+			List<WebElement> elements=driver.findElements(allCourses);
+//			driver.findElement(By.cssSelector("li.cds-9")).click();
+			elements.get(1).click();
+		}catch(Exception e) {
+			System.out.println("exception occured");
+		}
+	}
+	public void changeDriver() {
+		// TODO Auto-generated method stub
+		Set<String> se=driver.getWindowHandles();
+		List<String> ids=new ArrayList<String>(se);
+		String child=ids.get(1);
+		driver.switchTo().window(child);
+		
 	}
 
-//	Set<String> ids = driver.getWindowHandles();
-//	List<String> lis = new ArrayList<String>(ids);
-//	String parent = lis.get(0);
-//	String child = lis.get(1);
-//	driver.switchTo().window(child);
 }
