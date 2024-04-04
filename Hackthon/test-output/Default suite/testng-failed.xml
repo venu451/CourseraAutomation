@@ -6,6 +6,7 @@
       <class name="testCases.Test_001_CourseraSearchWebDev">
         <methods>
           <include name="searchCourses"/>
+          <include name="closeBrowser"/>
           <include name="InitializeBrowser"/>
         </methods>
       </class> <!-- testCases.Test_001_CourseraSearchWebDev -->
