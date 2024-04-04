@@ -23,14 +23,14 @@ public class Hooks {
 		PageFactory.initElements(driver, this);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	 //   mywait=new WebDriverWait(driver,Duration.ofSeconds(10));
 	}
 	public static WebDriver getDriver() {
 		return driver;
 	}
 	
+	
 	@After
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 }

@@ -59,11 +59,13 @@ public class HomePageSearch{
 	@Then("After gathering the data. That child window should be closed")
 	public void after_gathering_the_data_that_child_window_should_be_closed() {
 	    sr.closeChildWindow();
+	    chp.switchToParentWindow();
 	}
 
 	@When("Now User select the second course with above filter options.")
 	public void now_user_select_the_second_course_with_above_filter_options() {
-		chp.switchToParentWindow();
+		
+		//driver.switchTo().defaultContent();
 		chp.selectSecondCourse();
 	}
 }

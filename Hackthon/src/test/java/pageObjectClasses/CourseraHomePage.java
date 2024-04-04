@@ -84,7 +84,12 @@ public class CourseraHomePage extends BasePage{
 	}
 	
 	public WebDriver switchToParentWindow() {
-		String parent=driver.getWindowHandle();
+//		String parent=driver.getWindowHandle();
+//		driver.switchTo().window(parent);
+//		return driver;
+		Set<String> se=driver.getWindowHandles();
+		List<String> ids=new ArrayList<String>(se);
+		String parent=ids.get(0);
 		driver.switchTo().window(parent);
 		return driver;
 	}

@@ -1,8 +1,7 @@
-@tag
 Feature: Search courses and get titles,duration and rating of first 2 courses
   under beginner and English filter option
 
-  @tag1
+  @sanity
   Scenario: Search web development courses and apply filter options ( beginner, English)
     Given User opens the application
     When User search for "web development" courses and clicks on search button
