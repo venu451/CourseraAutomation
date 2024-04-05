@@ -17,7 +17,7 @@ public class Test_001_CourseraSearchWebDev extends ReusableComponents{
 	public void searchCourses() throws IOException, InterruptedException {
 		CourseraHomePage ch=new CourseraHomePage(driver);
 		SearchResult res=new SearchResult(driver);
-		ExcelUtility eu=new ExcelUtility();
+		ExcelUtility eu=new ExcelUtility("testng");
 		ch.searchCourse();
 		ch.selectLanguage();
 		Thread.sleep(3000);

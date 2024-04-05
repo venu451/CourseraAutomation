@@ -1,6 +1,8 @@
 package stepDefinations;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 
@@ -10,16 +12,20 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjectClasses.CourseraHomePage;
 import pageObjectClasses.SearchResult;
+import utilities.ExcelUtility;
 
 public class HomePageSearch{
 	public WebDriver driver;
 	public static  CourseraHomePage chp;
 	public static SearchResult sr;
-	
+	public static int rowNum=0;
+	public static int colNum=0;
+	public static List<String> exceldata=new ArrayList<>();
 	@Given("User opens the application")
 	public void user_opens_the_application() throws IOException {
 	    driver=Hooks.getDriver();
 	    chp=new CourseraHomePage(driver);
+	    
 	    driver.get("https://www.coursera.org/");
 	}
 
@@ -51,21 +57,37 @@ public class HomePageSearch{
 
 	@Then("Collect the title,rating and duration of course in hours")
 	public void collect_the_title_rating_and_duration_of_course_in_hours() {
-	    sr.getCourseTitle();
-	    sr.getRating();
-	    sr.getDuration();
+		
+	    String t1=sr.getCourseTitle();
+	   exceldata.add(t1);
+//	    rowNum+=1;
+	    
+	    String t2=sr.getRating();
+	    exceldata.add(t2);
+//	    rowNum+=1;
+	  
+	   String t3= String.valueOf(sr.getDuration());
+	    exceldata.add(t3);
+//	    rowNum+=1;
+	    
 	}
 
 	@Then("After gathering the data. That child window should be closed")
-	public void after_gathering_the_data_that_child_window_should_be_closed() {
+	public void after_gathering_the_data_that_child_window_should_be_closed() throws IOException {
+		
 	    sr.closeChildWindow();
 	    chp.switchToParentWindow();
 	}
 
 	@When("Now User select the second course with above filter options.")
-	public void now_user_select_the_second_course_with_above_filter_options() {
+	public void now_user_select_the_second_course_with_above_filter_options() throws IOException {
 		
 		//driver.switchTo().defaultContent();
 		chp.selectSecondCourse();
+		
+	}
+	@Then("add data to excel")
+	public void add_data_to_excel() throws IOException {
+		sr.setAllData(exceldata);
 	}
 }

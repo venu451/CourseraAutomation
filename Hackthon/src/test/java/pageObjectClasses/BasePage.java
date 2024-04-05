@@ -13,6 +13,9 @@ public class BasePage {
 	WebDriver driver=null;
 	WebDriverWait mywait=null;
 	public static Properties p;
+	static int jj=0;
+	static int ii=0;
+	public static String[] data=new String[10];
 	public BasePage(WebDriver driver) throws IOException{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);

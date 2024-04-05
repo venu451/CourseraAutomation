@@ -1,6 +1,7 @@
 package pageObjectClasses;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -12,6 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import utilities.ExcelUtility;
 
 public class CourseraHomePage extends BasePage{
 	
@@ -54,7 +58,7 @@ public class CourseraHomePage extends BasePage{
 	By languagebtn=By.xpath("//button[contains(text(),\"Language: English\")]");
 	By levelbtn=By.xpath("//button[contains(text(),\"Beginner\")]");
 	By allCourses=By.cssSelector("li.cds-9");
-	
+	By dropDown=By.xpath("//button[@data-e2e=\"megamenu-explore-button\"]/span");
 	public void searchCourse() {
 		mywait.until(ExpectedConditions.visibilityOf(searchBox)).sendKeys(p.getProperty("searchCategory"));
 		submitSearch.click();
@@ -117,5 +121,18 @@ public class CourseraHomePage extends BasePage{
 		driver.switchTo().window(child);
 		
 	}
-
+	public void clickOnDropDown() {
+		driver.findElement(dropDown).click();
+	}
+	
+	public void closeSurvey() {
+		WebDriverWait mm=new WebDriverWait(driver,Duration.ofSeconds(3));
+		try {
+		mm.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@id=\"surveyModal~title\"]")));
+		driver.findElement(By.xpath("//button[contains(text(),'No thanks')]")).click();
+		}catch(Exception e) {
+			
+		}
+	}
+	
 }

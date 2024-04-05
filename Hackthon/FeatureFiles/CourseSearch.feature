@@ -15,5 +15,7 @@ Feature: Search courses and get titles,duration and rating of first 2 courses
     Then user should naviagate to separate window
     And Collect the title,rating and duration of course in hours
     And After gathering the data. That child window should be closed
+    And add data to excel
+
 
   
