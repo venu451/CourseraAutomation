@@ -38,7 +38,7 @@ public class DropDownElements extends BasePage {
 	By levelCount=By.xpath("//div[@data-testid=\"search-filter-group-Level\"]/div/div/div/label/div/span/span/span");
 	
 	public void clickOnLanguageLearning() {
-		mywait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-e2e=\"megamenu-item~language-learning\"]"))).click();
+		mywait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-e2e='megamenu-item~language-learning']"))).click();
 //		driver.findElement(language_learning).click();
 	}
 	public void clickOnAllLanguages() {
@@ -100,7 +100,11 @@ public class DropDownElements extends BasePage {
 					for(WebElement each:ll) {
 						String languagecheckbox=each.getText();
 						String [] language_count=languagecheckbox.split(" ");
+						if(language_count.length==3) {
+							map.put(language_count[0], language_count[1].substring(1,language_count[2].length()-1));
+						}else {
 						map.put(language_count[0], language_count[1].substring(1,language_count[1].length()-1));
+						}
 						System.out.println(language_count[0]);
 						System.out.println(language_count[1].substring(1,language_count[1].length()-1));
 					}

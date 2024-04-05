@@ -17,8 +17,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-
-import testCases.ReusableComponents;
+import testBase.ReusableComponents;
 
 public class ExtentReportCreator extends ReusableComponents implements ITestListener
 {

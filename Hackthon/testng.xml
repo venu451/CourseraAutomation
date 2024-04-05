@@ -6,9 +6,11 @@
 	<listener class-name="utilities.ExtentReportCreator"></listener>
 </listeners>
   <test thread-count="5" name="Test">
-  	<parameter name="browser" value="edge"></parameter>
+  	<parameter name="browser" value="chrome"></parameter>
     <classes>
       <class name="testCases.Test_001_CourseraSearchWebDev"/>
+      <class name="testCases.TC3Languagelearn"/>
+      <class name="testCases.TC4enterprises"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

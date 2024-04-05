@@ -5,15 +5,16 @@
     <listener class-name="utilities.ExtentReportCreator"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="edge"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testCases.Test_001_CourseraSearchWebDev">
+      <class name="testCases.TC3Languagelearn">
         <methods>
-          <include name="searchCourses"/>
+          <include name="searchbox"/>
+          <include name="languagescourses"/>
           <include name="closeBrowser"/>
           <include name="InitializeBrowser"/>
         </methods>
-      </class> <!-- testCases.Test_001_CourseraSearchWebDev -->
+      </class> <!-- testCases.TC3Languagelearn -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

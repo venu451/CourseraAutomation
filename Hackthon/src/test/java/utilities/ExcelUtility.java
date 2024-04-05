@@ -1,5 +1,6 @@
 package utilities;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,7 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import stepDefinations.Hooks;
-import testCases.ReusableComponents;
+import testBase.ReusableComponents;
 
 public class ExcelUtility extends Hooks {
 	
@@ -126,5 +127,17 @@ public void setCucumberData(int rowNum, int colNum,List<Map<String,String>> data
 		    cell.setCellStyle(style);      
 		} 
 	
+	}
+	public String[] InputData() throws IOException {
+		// TODO Auto-generated method stub
+		String[] input=new String[11];
+		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"//testData//readData.xlsx");
+		XSSFWorkbook wbook=new XSSFWorkbook(fis);
+		XSSFSheet sheet=wbook.getSheetAt(0);
+		XSSFRow row=sheet.getRow(0);
+		for(int i=0;i<11;i++) {
+			input[i]=row.getCell(i).toString();
+		}
+		return input;
 	}	
 }
