@@ -1,0 +1,40 @@
+14:54:32.753 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Second course details page shown--------
+14:54:33.409 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Collectiong the title,rating,duration of Second Course--------
+14:54:38.756 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Data collected, prints on the console and written on excel file--------
+14:54:50.772 [main] INFO  testCases.TC3Languagelearn - ------Clcking on explore button and selecting Language learning option--------
+14:54:56.841 [main] INFO  testCases.TC3Languagelearn - ------ shows the language learn courses--------
+14:54:57.059 [main] INFO  testCases.TC3Languagelearn - ------For each Level it will count the number of courses available for different languages --------
+14:57:15.419 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Searching for web development courses  --------
+14:57:19.737 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------shows the available web devolpment courses  --------
+14:57:19.996 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------clicking on the language(English) and Level(Beginner) checkboxes--------
+14:57:23.716 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------filtered courses is shown -------
+14:57:23.876 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Clicking on the first course--------
+14:57:28.255 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------First course details page shown--------
+14:57:28.680 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Collectiong the title,rating,duration of First Course--------
+14:57:34.831 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Data collected, prints on the console and written on excel file--------
+14:57:34.955 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Clicking on the Second course--------
+14:57:35.155 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Second course details page shown--------
+14:57:35.653 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Collectiong the title,rating,duration of Second Course--------
+14:57:41.029 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Data collected, prints on the console and written on excel file--------
+14:57:54.450 [main] INFO  testCases.TC3Languagelearn - ------Clcking on explore button and selecting Language learning option--------
+14:57:59.332 [main] INFO  testCases.TC3Languagelearn - ------ shows the language learn courses--------
+14:57:59.519 [main] INFO  testCases.TC3Languagelearn - ------For each Level it will count the number of courses available for different languages --------
+14:58:30.516 [main] INFO  testCases.TC3Languagelearn - ------data taken, prints on console and also written on excel file------
+14:58:55.804 [main] INFO  testCases.TC4enterprises - ----- forEnterprises method runs succesful------
+14:58:58.523 [main] INFO  testCases.TC4enterprises - ------error message is shown------
+15:00:06.118 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Searching for web development courses  --------
+15:00:11.424 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------shows the available web devolpment courses  --------
+15:00:11.664 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------clicking on the language(English) and Level(Beginner) checkboxes--------
+15:00:15.207 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------filtered courses is shown -------
+15:00:15.347 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Clicking on the first course--------
+15:00:19.236 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------First course details page shown--------
+15:00:19.652 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Collectiong the title,rating,duration of First Course--------
+15:00:25.502 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Data collected, prints on the console and written on excel file--------
+15:00:25.625 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Clicking on the Second course--------
+15:00:25.843 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Second course details page shown--------
+15:00:26.320 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Collectiong the title,rating,duration of Second Course--------
+15:00:31.756 [main] INFO  testCases.Test_001_CourseraSearchWebDev - ------Data collected, prints on the console and written on excel file--------
+15:00:41.351 [main] INFO  testCases.TC3Languagelearn - ------Clcking on explore button and selecting Language learning option--------
+15:00:46.447 [main] INFO  testCases.TC3Languagelearn - ------ shows the language learn courses--------
+15:00:46.630 [main] INFO  testCases.TC3Languagelearn - ------For each Level it will count the number of courses available for different languages --------
+15:01:18.628 [main] INFO  testCases.TC3Languagelearn - ------data taken, prints on console and also written on excel file------

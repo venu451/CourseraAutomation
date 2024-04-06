@@ -7,6 +7,14 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="testCases.TC4enterprises">
+        <methods>
+          <include name="submitForm"/>
+          <include name="closeBrowser"/>
+          <include name="forEnterprise"/>
+          <include name="InitializeBrowser"/>
+        </methods>
+      </class> <!-- testCases.TC4enterprises -->
       <class name="testCases.TC3Languagelearn">
         <methods>
           <include name="searchbox"/>

@@ -66,7 +66,7 @@ public static String captureScreen( WebDriver d)
 	
 	{
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		TakesScreenshot takesScreenshot = (TakesScreenshot)d;
+		TakesScreenshot takesScreenshot = (TakesScreenshot)driver;
 		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String targetFilePath=System.getProperty("user.dir")+"\\screenshots\\"+"_" + timeStamp + ".png";
 		File targetFile=new File(targetFilePath);
